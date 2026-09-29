@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LearnWithMic - Study SMART, Not HARD</title>
+  
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #0b111e;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Circuit / Grid Background Pattern */
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: 
+        radial-gradient(circle, rgba(0, 191, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(to right, rgba(0, 191, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 191, 255, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -1;
+    }
+
+    /* Ambient Glow Effects */
+    .glow-orb {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(0, 191, 255, 0.2);
+      filter: blur(100px);
+      z-index: -1;
+    }
+    .orb-1 { top: 15%; left: 10%; }
+    .orb-2 { bottom: 15%; right: 10%; }
+
+    /* Header & Navigation Bar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(11, 17, 30, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 191, 255, 0.2);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      background: #00bfff;
+      color: #0b111e;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+    }
+
+    .brand-name {
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #a0aec0;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav a:hover, nav a.active {
+      color: #00bfff;
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #00bfff;
+      box-shadow: 0 0 8px #00bfff;
+    }
+
+    /* Main Hero Section */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Tag Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 191, 255, 0.1);
+      border: 1px solid rgba(0, 191, 255, 0.3);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #00bfff;
+      margin-bottom: 25px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #00bfff;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #00bfff;
+    }
+
+    /* Titles */
+    .title {
+      font-size: 4.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.6rem;
+      color: #00bfff;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 650px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .highlight {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Watch Video CTA Button */
+    .btn-watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      color: #0b111e;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-watch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(0, 191, 255, 0.6);
+      background: #00bfff;
+      color: #ffffff;
+    }
+
+    .play-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      background: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <!-- Header Section -->
+  <header>
+    <a href="#" class="brand">
+      <div class="brand-logo">LWM</div>
+      <span class="brand-name">LearnWithMic</span>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="#" class="active" onclick="switchTab(this, 'Home')">Home</a></li>
+        <li><a href="#" onclick="switchTab(this, 'Videos')">Videos</a></li>
+        <li><a href="#" onclick="switchTab(this, 'Ed Tools')">Ed Tools</a></li>
+        <li><a href="#" onclick="switchTab(this, 'My Journey')">My Journey</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Main Banner -->
+  <main class="hero">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Digital Learning & Smart Study Tips
+    </div>
+
+    <h1 class="title">LearnWithMic</h1>
+    <h2 class="subtitle">Study SMART, not HARD</h2>
+
+    <p class="description">
+      Welcome! Here I document my learning journey, share useful <span class="highlight">educational tools</span>, and help students discover better, <span class="highlight">stress-free ways to learn</span>.
+    </p>
+
+    <button class="btn-watch" onclick="openVideoModal()">
+      WATCH THE VIDEO
+      <svg class="play-icon" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+  </main>
+
+  <!-- Video Popup Modal -->
+  <div class="modal-overlay" id="videoModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeVideoModal()">&times;</span>
+      <div class="video-container">
+        <!-- Paste your YouTube embed URL below -->
+        <iframe id="videoIframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(element, tabName) {
+      document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+      element.classList.add('active');
+      console.log(`Switched to ${tabName}`);
+    }
+
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoIframe');
+    // Replace this link with your own video embed link when ready
+    const videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+
+    function openVideoModal() {
+      iframe.src = videoUrl;
+      modal.style.display = 'flex';
+    }
+
+    function closeVideoModal() {
+      iframe.src = "";
+      modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        closeVideoModal();
+      }
+    };
+  </script>
+</body>
+</html>
