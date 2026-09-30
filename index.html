@@ -122,13 +122,12 @@
 
     /* Main Hero Section */
     .hero {
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 60px 20px;
+      padding: 60px 20px 40px 20px;
       max-width: 900px;
       margin: 0 auto;
     }
@@ -277,6 +276,58 @@
       fill: currentColor;
     }
 
+    /* Pinterest Gallery Section */
+    .gallery-section {
+      padding: 60px 20px 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      color: #e9d5ff;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: #a0aec0;
+      margin-bottom: 40px;
+    }
+
+    .pins-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 25px;
+    }
+
+    .pin-card {
+      background: rgba(30, 21, 42, 0.65);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .pin-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(168, 85, 247, 0.8);
+      box-shadow: 0 12px 40px rgba(168, 85, 247, 0.35);
+    }
+
+    .pin-card iframe {
+      border-radius: 12px;
+      display: block;
+    }
+
     /* Modal Styling */
     .modal-overlay {
       position: fixed;
@@ -379,6 +430,30 @@
       </svg>
     </button>
   </main>
+
+  <!-- Aesthetic Study Pins Section -->
+  <section class="gallery-section">
+    <h2 class="section-title">Aesthetic Study Inspiration 🌸</h2>
+    <p class="section-subtitle">Curated study notes, organization layouts, and motivation</p>
+
+    <div class="pins-grid">
+      <div class="pin-card">
+        <iframe src="https://assets.pinterest.com/ext/embed.html?id=10062799164740871" height="445" width="345" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div class="pin-card">
+        <iframe src="https://assets.pinterest.com/ext/embed.html?id=856246947947898635" height="418" width="345" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div class="pin-card">
+        <iframe src="https://assets.pinterest.com/ext/embed.html?id=713328028508140902" height="588" width="345" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div class="pin-card">
+        <iframe src="https://assets.pinterest.com/ext/embed.html?id=1049479519416939236" height="445" width="345" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div class="pin-card">
+        <iframe src="https://assets.pinterest.com/ext/embed.html?id=952229914967943517" height="310" width="345" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+  </section>
 
   <!-- Video Popup Modal -->
   <div class="modal-overlay" id="videoModal">
