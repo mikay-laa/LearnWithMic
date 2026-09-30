@@ -23,7 +23,7 @@
       overflow-x: hidden;
     }
 
-    /* Circuit / Grid Background Pattern */
+    /* Grid Pattern */
     .bg-grid {
       position: fixed;
       top: 0;
@@ -38,7 +38,7 @@
       z-index: -1;
     }
 
-    /* Ambient Glow Effects */
+    /* Glow Effects */
     .glow-orb {
       position: absolute;
       width: 320px;
@@ -51,7 +51,7 @@
     .orb-1 { top: 15%; left: 10%; }
     .orb-2 { bottom: 15%; right: 10%; background: rgba(236, 72, 153, 0.2); }
 
-    /* Header & Navigation Bar */
+    /* Header Navigation */
     header {
       display: flex;
       justify-content: space-between;
@@ -60,6 +60,7 @@
       background: rgba(15, 9, 25, 0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+      z-index: 10;
     }
 
     .brand {
@@ -120,30 +121,68 @@
       box-shadow: 0 0 8px #c084fc;
     }
 
-    /* Main Hero Section */
-    .hero {
+    /* Main Hero & Pinterest Cover Page Layout */
+    .hero-cover {
+      position: relative;
+      padding: 50px 20px 80px 20px;
+      max-width: 1300px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 20px 40px 20px;
-      max-width: 900px;
-      margin: 0 auto;
     }
 
-    /* Tag Badge */
+    /* Embedded Pinterest Background Grid */
+    .pinterest-cover-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .pin-frame {
+      background: rgba(30, 21, 42, 0.65);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      transition: all 0.4s ease;
+      transform: scale(0.95);
+    }
+
+    .pin-frame:hover {
+      transform: scale(1) translateY(-6px);
+      border-color: rgba(168, 85, 247, 0.8);
+      box-shadow: 0 12px 35px rgba(168, 85, 247, 0.4);
+    }
+
+    .pin-frame iframe {
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* Text & Action Overlay */
+    .cover-content {
+      text-align: center;
+      max-width: 800px;
+      z-index: 2;
+    }
+
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.4);
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.5);
       padding: 6px 18px;
       border-radius: 20px;
       font-size: 0.85rem;
       color: #e9d5ff;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .badge-dot {
@@ -154,7 +193,6 @@
       box-shadow: 0 0 8px #a855f7;
     }
 
-    /* Titles with Moving Animation */
     .title {
       font-size: 4.5rem;
       font-weight: 800;
@@ -187,7 +225,7 @@
       color: #94a3b8;
       max-width: 650px;
       line-height: 1.6;
-      margin-bottom: 40px;
+      margin: 0 auto 35px auto;
     }
 
     .highlight {
@@ -195,7 +233,7 @@
       font-weight: 600;
     }
 
-    /* Cute Floating Background Icons */
+    /* Cute Floating Icons */
     .floating-icon {
       position: fixed;
       font-size: 2.2rem;
@@ -206,46 +244,18 @@
       filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
     }
 
-    .book-1 {
-      top: 18%;
-      left: 8%;
-      animation: floatSlow 6s ease-in-out infinite;
-    }
-
-    .pencil-1 {
-      top: 70%;
-      left: 12%;
-      animation: floatSlow 7s ease-in-out infinite 1s;
-    }
-
-    .star-1 {
-      top: 25%;
-      right: 12%;
-      animation: floatSlow 5s ease-in-out infinite 0.5s;
-    }
-
-    .book-2 {
-      bottom: 20%;
-      right: 10%;
-      animation: floatSlow 8s ease-in-out infinite 1.5s;
-    }
-
-    .spark-1 {
-      top: 12%;
-      left: 50%;
-      animation: floatSlow 4s ease-in-out infinite 2s;
-    }
+    .book-1 { top: 18%; left: 5%; animation: floatSlow 6s ease-in-out infinite; }
+    .pencil-1 { top: 70%; left: 6%; animation: floatSlow 7s ease-in-out infinite 1s; }
+    .star-1 { top: 25%; right: 5%; animation: floatSlow 5s ease-in-out infinite 0.5s; }
+    .book-2 { bottom: 15%; right: 6%; animation: floatSlow 8s ease-in-out infinite 1.5s; }
+    .spark-1 { top: 12%; left: 50%; animation: floatSlow 4s ease-in-out infinite 2s; }
 
     @keyframes floatSlow {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-15px) rotate(8deg);
-      }
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(8deg); }
     }
 
-    /* Watch Video CTA Button */
+    /* Watch Video Button */
     .btn-watch {
       display: inline-flex;
       align-items: center;
@@ -274,58 +284,6 @@
       width: 20px;
       height: 20px;
       fill: currentColor;
-    }
-
-    /* Pinterest Gallery Section */
-    .gallery-section {
-      padding: 60px 20px 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 2.2rem;
-      color: #e9d5ff;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    .section-subtitle {
-      font-size: 1rem;
-      color: #a0aec0;
-      margin-bottom: 40px;
-    }
-
-    .pins-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 25px;
-    }
-
-    .pin-card {
-      background: rgba(30, 21, 42, 0.65);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: 16px;
-      padding: 12px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-      overflow: hidden;
-      display: inline-block;
-    }
-
-    .pin-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(168, 85, 247, 0.8);
-      box-shadow: 0 12px 40px rgba(168, 85, 247, 0.35);
-    }
-
-    .pin-card iframe {
-      border-radius: 12px;
-      display: block;
     }
 
     /* Modal Styling */
@@ -365,7 +323,7 @@
 
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      padding-bottom: 56.25%;
       height: 0;
     }
 
@@ -385,14 +343,14 @@
   <div class="glow-orb orb-1"></div>
   <div class="glow-orb orb-2"></div>
 
-  <!-- Cute Floating Background Elements -->
+  <!-- Cute Floating Background Icons -->
   <div class="floating-icon book-1">📚</div>
   <div class="floating-icon pencil-1">✏️</div>
   <div class="floating-icon star-1">✨</div>
   <div class="floating-icon book-2">📖</div>
   <div class="floating-icon spark-1">🌟</div>
 
-  <!-- Header Section -->
+  <!-- Header Navigation -->
   <header>
     <a href="#" class="brand">
       <div class="brand-logo">LWM</div>
@@ -409,51 +367,48 @@
     </nav>
   </header>
 
-  <!-- Hero Main Banner -->
-  <main class="hero">
-    <div class="badge">
-      <span class="badge-dot"></span>
-      Digital Learning & Smart Study Tips
+  <!-- Cover Page Area with Integrated Pinterest Aesthetic Template -->
+  <main class="hero-cover">
+    <div class="cover-content">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Digital Learning & Smart Study Tips
+      </div>
+
+      <h1 class="title">LearnWithMic</h1>
+      <h2 class="subtitle">Study SMART, not HARD</h2>
+
+      <p class="description">
+        Welcome! Here I document my learning journey, share useful <span class="highlight">educational tools</span>, and help students discover better, <span class="highlight">stress-free ways to learn</span>.
+      </p>
+
+      <button class="btn-watch" onclick="openVideoModal()">
+        WATCH THE VIDEO
+        <svg class="play-icon" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
     </div>
 
-    <h1 class="title">LearnWithMic</h1>
-    <h2 class="subtitle">Study SMART, not HARD</h2>
-
-    <p class="description">
-      Welcome! Here I document my learning journey, share useful <span class="highlight">educational tools</span>, and help students discover better, <span class="highlight">stress-free ways to learn</span>.
-    </p>
-
-    <button class="btn-watch" onclick="openVideoModal()">
-      WATCH THE VIDEO
-      <svg class="play-icon" viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
-    </button>
-  </main>
-
-  <!-- Aesthetic Study Pins Section -->
-  <section class="gallery-section">
-    <h2 class="section-title">Aesthetic Study Inspiration 🌸</h2>
-    <p class="section-subtitle">Curated study notes, organization layouts, and motivation</p>
-
-    <div class="pins-grid">
-      <div class="pin-card">
+    <!-- Pinterest Template Cover Board -->
+    <div class="pinterest-cover-grid" style="margin-top: 50px;">
+      <div class="pin-frame">
         <iframe src="https://assets.pinterest.com/ext/embed.html?id=10062799164740871" height="445" width="345" frameborder="0" scrolling="no"></iframe>
       </div>
-      <div class="pin-card">
+      <div class="pin-frame">
         <iframe src="https://assets.pinterest.com/ext/embed.html?id=856246947947898635" height="418" width="345" frameborder="0" scrolling="no"></iframe>
       </div>
-      <div class="pin-card">
+      <div class="pin-frame">
         <iframe src="https://assets.pinterest.com/ext/embed.html?id=713328028508140902" height="588" width="345" frameborder="0" scrolling="no"></iframe>
       </div>
-      <div class="pin-card">
+      <div class="pin-frame">
         <iframe src="https://assets.pinterest.com/ext/embed.html?id=1049479519416939236" height="445" width="345" frameborder="0" scrolling="no"></iframe>
       </div>
-      <div class="pin-card">
+      <div class="pin-frame">
         <iframe src="https://assets.pinterest.com/ext/embed.html?id=952229914967943517" height="310" width="345" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
-  </section>
+  </main>
 
   <!-- Video Popup Modal -->
   <div class="modal-overlay" id="videoModal">
