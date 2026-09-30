@@ -15,15 +15,15 @@
     }
 
     body {
-      background-color: #0f0919;
-      color: #ffffff;
+      background-color: #fdf2f8; /* Soft Coquette Pink Background */
+      color: #831843; /* Deep Pink Text */
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
     }
 
-    /* Grid Pattern */
+    /* Coquette Heart/Grid Background Pattern */
     .bg-grid {
       position: fixed;
       top: 0;
@@ -31,25 +31,25 @@
       width: 100vw;
       height: 100vh;
       background-image: 
-        radial-gradient(circle, rgba(168, 85, 247, 0.2) 1px, transparent 1px),
-        linear-gradient(to right, rgba(168, 85, 247, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
-      background-size: 40px 40px;
+        radial-gradient(circle, rgba(244, 114, 182, 0.25) 1.5px, transparent 1.5px),
+        linear-gradient(to right, rgba(244, 114, 182, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(244, 114, 182, 0.08) 1px, transparent 1px);
+      background-size: 35px 35px;
       z-index: -1;
     }
 
-    /* Glow Effects */
+    /* Ambient Soft Pink Glow Effects */
     .glow-orb {
       position: absolute;
-      width: 320px;
-      height: 320px;
+      width: 380px;
+      height: 380px;
       border-radius: 50%;
-      background: rgba(168, 85, 247, 0.25);
-      filter: blur(100px);
+      background: rgba(251, 207, 232, 0.6);
+      filter: blur(90px);
       z-index: -1;
     }
-    .orb-1 { top: 15%; left: 10%; }
-    .orb-2 { bottom: 15%; right: 10%; background: rgba(236, 72, 153, 0.2); }
+    .orb-1 { top: 10%; left: 8%; }
+    .orb-2 { bottom: 15%; right: 10%; background: rgba(244, 114, 182, 0.35); }
 
     /* Header Navigation */
     header {
@@ -57,9 +57,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 50px;
-      background: rgba(15, 9, 25, 0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(255, 241, 242, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(244, 114, 182, 0.3);
       z-index: 10;
     }
 
@@ -71,22 +71,22 @@
     }
 
     .brand-logo {
-      width: 42px;
-      height: 42px;
-      background: #a855f7;
-      color: #0f0919;
-      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      background: #f472b6;
+      color: #ffffff;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
       font-size: 1.1rem;
-      box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+      box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4);
     }
 
     .brand-name {
-      color: #ffffff;
-      font-size: 1.3rem;
+      color: #9d174d;
+      font-size: 1.4rem;
       font-weight: 700;
       letter-spacing: 0.5px;
     }
@@ -98,191 +98,174 @@
     }
 
     nav a {
-      color: #a0aec0;
+      color: #9d174d;
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      font-weight: 600;
       transition: all 0.3s ease;
       position: relative;
       padding-bottom: 5px;
     }
 
     nav a:hover, nav a.active {
-      color: #c084fc;
+      color: #ec4899;
     }
 
     nav a.active::after {
-      content: '';
+      content: '🎀';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: #c084fc;
-      box-shadow: 0 0 8px #c084fc;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
     }
 
-    /* Main Hero & Pinterest Cover Page Layout */
-    .hero-cover {
-      position: relative;
-      padding: 50px 20px 80px 20px;
-      max-width: 1300px;
-      margin: 0 auto;
+    /* Main Hero & Coquette Template Card */
+    .hero-container {
+      flex: 1;
       display: flex;
-      flex-direction: column;
       align-items: center;
-    }
-
-    /* Embedded Pinterest Background Grid */
-    .pinterest-cover-grid {
-      display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
-      gap: 20px;
+      padding: 60px 20px;
+    }
+
+    .coquette-card {
+      background: rgba(255, 255, 255, 0.75);
+      border: 2px solid rgba(244, 114, 182, 0.4);
+      border-radius: 28px;
+      padding: 60px 40px;
+      max-width: 850px;
       width: 100%;
-      margin-bottom: 40px;
-    }
-
-    .pin-frame {
-      background: rgba(30, 21, 42, 0.65);
-      border: 1px solid rgba(168, 85, 247, 0.35);
-      border-radius: 16px;
-      padding: 10px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(8px);
-      transition: all 0.4s ease;
-      transform: scale(0.95);
-    }
-
-    .pin-frame:hover {
-      transform: scale(1) translateY(-6px);
-      border-color: rgba(168, 85, 247, 0.8);
-      box-shadow: 0 12px 35px rgba(168, 85, 247, 0.4);
-    }
-
-    .pin-frame iframe {
-      border-radius: 12px;
-      display: block;
-    }
-
-    /* Text & Action Overlay */
-    .cover-content {
       text-align: center;
-      max-width: 800px;
+      box-shadow: 0 20px 40px rgba(244, 114, 182, 0.15);
+      backdrop-filter: blur(16px);
+      position: relative;
       z-index: 2;
+    }
+
+    .card-bow {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      display: inline-block;
+      animation: gentleBounce 2.5s ease-in-out infinite;
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(168, 85, 247, 0.2);
-      border: 1px solid rgba(168, 85, 247, 0.5);
-      padding: 6px 18px;
+      background: #fbcfe8;
+      border: 1px solid #f472b6;
+      padding: 8px 20px;
       border-radius: 20px;
-      font-size: 0.85rem;
-      color: #e9d5ff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #9d174d;
       margin-bottom: 20px;
     }
 
     .badge-dot {
       width: 8px;
       height: 8px;
-      background-color: #a855f7;
+      background-color: #ec4899;
       border-radius: 50%;
-      box-shadow: 0 0 8px #a855f7;
+      box-shadow: 0 0 8px #ec4899;
     }
 
+    /* Moving Title Animation */
     .title {
       font-size: 4.5rem;
       font-weight: 800;
       letter-spacing: -1px;
       margin-bottom: 12px;
-      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      background: linear-gradient(180deg, #9d174d 0%, #ec4899 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: floatTitle 3s ease-in-out infinite;
     }
 
     @keyframes floatTitle {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
     }
 
     .subtitle {
-      font-size: 1.6rem;
-      color: #c084fc;
+      font-size: 1.7rem;
+      color: #db2777;
       font-weight: 600;
       margin-bottom: 20px;
     }
 
     .description {
-      font-size: 1.1rem;
-      color: #94a3b8;
+      font-size: 1.15rem;
+      color: #831843;
       max-width: 650px;
-      line-height: 1.6;
+      line-height: 1.7;
       margin: 0 auto 35px auto;
     }
 
     .highlight {
-      color: #ffffff;
-      font-weight: 600;
+      color: #be185d;
+      font-weight: 700;
+      background: #fbcfe8;
+      padding: 2px 8px;
+      border-radius: 6px;
     }
 
-    /* Cute Floating Icons */
+    /* Coquette Floating Pink Icons (High Visibility) */
     .floating-icon {
       position: fixed;
-      font-size: 2.2rem;
+      font-size: 3rem;
       user-select: none;
       pointer-events: none;
-      z-index: 0;
-      opacity: 0.8;
-      filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+      z-index: 1;
+      opacity: 0.95;
+      filter: drop-shadow(0 6px 12px rgba(244, 114, 182, 0.4));
     }
 
-    .book-1 { top: 18%; left: 5%; animation: floatSlow 6s ease-in-out infinite; }
-    .pencil-1 { top: 70%; left: 6%; animation: floatSlow 7s ease-in-out infinite 1s; }
-    .star-1 { top: 25%; right: 5%; animation: floatSlow 5s ease-in-out infinite 0.5s; }
-    .book-2 { bottom: 15%; right: 6%; animation: floatSlow 8s ease-in-out infinite 1.5s; }
-    .spark-1 { top: 12%; left: 50%; animation: floatSlow 4s ease-in-out infinite 2s; }
+    .book-1 { top: 18%; left: 8%; animation: floatSlow 6s ease-in-out infinite; }
+    .pencil-1 { top: 68%; left: 10%; animation: floatSlow 7s ease-in-out infinite 1s; }
+    .megaphone-1 { top: 22%; right: 9%; animation: floatSlow 5.5s ease-in-out infinite 0.5s; }
+    .book-2 { bottom: 18%; right: 10%; animation: floatSlow 8s ease-in-out infinite 1.5s; }
+    .spark-1 { top: 12%; left: 48%; animation: floatSlow 4s ease-in-out infinite 2s; }
 
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(8deg); }
+      50% { transform: translateY(-18px) rotate(10deg); }
     }
 
-    /* Watch Video Button */
+    /* Coquette CTA Button */
     .btn-watch {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: #ffffff;
-      color: #0f0919;
-      padding: 14px 32px;
-      border-radius: 30px;
+      gap: 12px;
+      background: #f472b6;
+      color: #ffffff;
+      padding: 16px 36px;
+      border-radius: 35px;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.05rem;
       border: none;
       cursor: pointer;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 25px rgba(244, 114, 182, 0.45);
       transition: all 0.3s ease;
       text-decoration: none;
     }
 
     .btn-watch:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 35px rgba(168, 85, 247, 0.7);
-      background: #a855f7;
-      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(236, 72, 153, 0.6);
+      background: #ec4899;
     }
 
     .play-icon {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       fill: currentColor;
     }
 
@@ -293,7 +276,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(131, 24, 67, 0.6);
       backdrop-filter: blur(8px);
       display: none;
       align-items: center;
@@ -305,20 +288,22 @@
       position: relative;
       width: 90%;
       max-width: 800px;
-      background: #1e152a;
-      border-radius: 12px;
+      background: #fdf2f8;
+      border: 2px solid #f472b6;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+      box-shadow: 0 20px 50px rgba(131, 24, 67, 0.3);
     }
 
     .modal-close {
       position: absolute;
       top: 15px;
       right: 20px;
-      font-size: 1.8rem;
-      color: #fff;
+      font-size: 2rem;
+      color: #9d174d;
       cursor: pointer;
       z-index: 1001;
+      font-weight: bold;
     }
 
     .video-container {
@@ -343,12 +328,12 @@
   <div class="glow-orb orb-1"></div>
   <div class="glow-orb orb-2"></div>
 
-  <!-- Cute Floating Background Icons -->
-  <div class="floating-icon book-1">📚</div>
-  <div class="floating-icon pencil-1">✏️</div>
-  <div class="floating-icon star-1">✨</div>
-  <div class="floating-icon book-2">📖</div>
-  <div class="floating-icon spark-1">🌟</div>
+  <!-- Aesthetic Pink Coquette Floating Icons -->
+  <div class="floating-icon book-1">🩷📚</div>
+  <div class="floating-icon pencil-1">✏️🏼</div>
+  <div class="floating-icon megaphone-1">📣🌸</div>
+  <div class="floating-icon book-2">📖💖</div>
+  <div class="floating-icon spark-1">🎀✨</div>
 
   <!-- Header Navigation -->
   <header>
@@ -367,46 +352,28 @@
     </nav>
   </header>
 
-  <!-- Cover Page Area with Integrated Pinterest Aesthetic Template -->
-  <main class="hero-cover">
-    <div class="cover-content">
+  <!-- Coquette Hero Template -->
+  <main class="hero-container">
+    <div class="coquette-card">
+      <div class="card-bow">🎀</div>
       <div class="badge">
         <span class="badge-dot"></span>
         Digital Learning & Smart Study Tips
       </div>
 
       <h1 class="title">LearnWithMic</h1>
-      <h2 class="subtitle">Study SMART, not HARD</h2>
+      <h2 class="subtitle">Study SMART, not HARD 🌸</h2>
 
       <p class="description">
         Welcome! Here I document my learning journey, share useful <span class="highlight">educational tools</span>, and help students discover better, <span class="highlight">stress-free ways to learn</span>.
       </p>
 
       <button class="btn-watch" onclick="openVideoModal()">
-        WATCH THE VIDEO
+        WATCH THE VIDEO 🎀
         <svg class="play-icon" viewBox="0 0 24 24">
           <path d="M8 5v14l11-7z"/>
         </svg>
       </button>
-    </div>
-
-    <!-- Pinterest Template Cover Board -->
-    <div class="pinterest-cover-grid" style="margin-top: 50px;">
-      <div class="pin-frame">
-        <iframe src="https://assets.pinterest.com/ext/embed.html?id=10062799164740871" height="445" width="345" frameborder="0" scrolling="no"></iframe>
-      </div>
-      <div class="pin-frame">
-        <iframe src="https://assets.pinterest.com/ext/embed.html?id=856246947947898635" height="418" width="345" frameborder="0" scrolling="no"></iframe>
-      </div>
-      <div class="pin-frame">
-        <iframe src="https://assets.pinterest.com/ext/embed.html?id=713328028508140902" height="588" width="345" frameborder="0" scrolling="no"></iframe>
-      </div>
-      <div class="pin-frame">
-        <iframe src="https://assets.pinterest.com/ext/embed.html?id=1049479519416939236" height="445" width="345" frameborder="0" scrolling="no"></iframe>
-      </div>
-      <div class="pin-frame">
-        <iframe src="https://assets.pinterest.com/ext/embed.html?id=952229914967943517" height="310" width="345" frameborder="0" scrolling="no"></iframe>
-      </div>
     </div>
   </main>
 
