@@ -5,274 +5,341 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LearnWithMic - Study SMART, Not HARD</title>
   
- <style>
-  /* Reset & Base Styles */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-  body {
-    background-color: #0f0919;
-    color: #ffffff;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-  }
+    body {
+      background-color: #0f0919;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
 
-  /* Circuit / Grid Background Pattern */
-  .bg-grid {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: 
-      radial-gradient(circle, rgba(168, 85, 247, 0.2) 1px, transparent 1px),
-      linear-gradient(to right, rgba(168, 85, 247, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    z-index: -1;
-  }
+    /* Circuit / Grid Background Pattern */
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: 
+        radial-gradient(circle, rgba(168, 85, 247, 0.2) 1px, transparent 1px),
+        linear-gradient(to right, rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -1;
+    }
 
-  /* Ambient Glow Effects */
-  .glow-orb {
-    position: absolute;
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    background: rgba(168, 85, 247, 0.25);
-    filter: blur(100px);
-    z-index: -1;
-  }
-  .orb-1 { top: 15%; left: 10%; }
-  .orb-2 { bottom: 15%; right: 10%; background: rgba(236, 72, 153, 0.2); }
+    /* Ambient Glow Effects */
+    .glow-orb {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(168, 85, 247, 0.25);
+      filter: blur(100px);
+      z-index: -1;
+    }
+    .orb-1 { top: 15%; left: 10%; }
+    .orb-2 { bottom: 15%; right: 10%; background: rgba(236, 72, 153, 0.2); }
 
-  /* Header & Navigation Bar */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: rgba(15, 9, 25, 0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-  }
+    /* Header & Navigation Bar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(15, 9, 25, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+    }
 
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
 
-  .brand-logo {
-    width: 42px;
-    height: 42px;
-    background: #a855f7;
-    color: #0f0919;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 1.1rem;
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
-  }
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      background: #a855f7;
+      color: #0f0919;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+    }
 
-  .brand-name {
-    color: #ffffff;
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-  }
+    .brand-name {
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
 
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-  }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
 
-  nav a {
-    color: #a0aec0;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    position: relative;
-    padding-bottom: 5px;
-  }
+    nav a {
+      color: #a0aec0;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 5px;
+    }
 
-  nav a:hover, nav a.active {
-    color: #c084fc;
-  }
+    nav a:hover, nav a.active {
+      color: #c084fc;
+    }
 
-  nav a.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #c084fc;
-    box-shadow: 0 0 8px #c084fc;
-  }
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #c084fc;
+      box-shadow: 0 0 8px #c084fc;
+    }
 
-  /* Main Hero Section */
-  .hero {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
+    /* Main Hero Section */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-  /* Tag Badge */
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(168, 85, 247, 0.15);
-    border: 1px solid rgba(168, 85, 247, 0.4);
-    padding: 6px 18px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: #e9d5ff;
-    margin-bottom: 25px;
-  }
+    /* Tag Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #e9d5ff;
+      margin-bottom: 25px;
+    }
 
-  .badge-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #a855f7;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #a855f7;
-  }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #a855f7;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #a855f7;
+    }
 
-  /* Titles */
-  .title {
-    font-size: 4.5rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 12px;
-    background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+    /* Titles with Moving Animation */
+    .title {
+      font-size: 4.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: floatTitle 3s ease-in-out infinite;
+    }
 
-  .subtitle {
-    font-size: 1.6rem;
-    color: #c084fc;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
+    @keyframes floatTitle {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
 
-  .description {
-    font-size: 1.1rem;
-    color: #94a3b8;
-    max-width: 650px;
-    line-height: 1.6;
-    margin-bottom: 40px;
-  }
+    .subtitle {
+      font-size: 1.6rem;
+      color: #c084fc;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
 
-  .highlight {
-    color: #ffffff;
-    font-weight: 600;
-  }
+    .description {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 650px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
 
-  /* Watch Video CTA Button */
-  .btn-watch {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #ffffff;
-    color: #0f0919;
-    padding: 14px 32px;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-    text-decoration: none;
-  }
+    .highlight {
+      color: #ffffff;
+      font-weight: 600;
+    }
 
-  .btn-watch:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 35px rgba(168, 85, 247, 0.7);
-    background: #a855f7;
-    color: #ffffff;
-  }
+    /* Cute Floating Background Icons */
+    .floating-icon {
+      position: fixed;
+      font-size: 2.2rem;
+      user-select: none;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.8;
+      filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+    }
 
-  .play-icon {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-  }
+    .book-1 {
+      top: 18%;
+      left: 8%;
+      animation: floatSlow 6s ease-in-out infinite;
+    }
 
-  /* Modal Styling */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
+    .pencil-1 {
+      top: 70%;
+      left: 12%;
+      animation: floatSlow 7s ease-in-out infinite 1s;
+    }
 
-  .modal-content {
-    position: relative;
-    width: 90%;
-    max-width: 800px;
-    background: #1e152a;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
-  }
+    .star-1 {
+      top: 25%;
+      right: 12%;
+      animation: floatSlow 5s ease-in-out infinite 0.5s;
+    }
 
-  .modal-close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.8rem;
-    color: #fff;
-    cursor: pointer;
-    z-index: 1001;
-  }
+    .book-2 {
+      bottom: 20%;
+      right: 10%;
+      animation: floatSlow 8s ease-in-out infinite 1.5s;
+    }
 
-  .video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-  }
+    .spark-1 {
+      top: 12%;
+      left: 50%;
+      animation: floatSlow 4s ease-in-out infinite 2s;
+    }
 
-  .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-</style>
+    @keyframes floatSlow {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-15px) rotate(8deg);
+      }
+    }
+
+    /* Watch Video CTA Button */
+    .btn-watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      color: #0f0919;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-watch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(168, 85, 247, 0.7);
+      background: #a855f7;
+      color: #ffffff;
+    }
+
+    .play-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      background: #1e152a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 </head>
 <body>
 
   <div class="bg-grid"></div>
   <div class="glow-orb orb-1"></div>
   <div class="glow-orb orb-2"></div>
+
+  <!-- Cute Floating Background Elements -->
+  <div class="floating-icon book-1">📚</div>
+  <div class="floating-icon pencil-1">✏️</div>
+  <div class="floating-icon star-1">✨</div>
+  <div class="floating-icon book-2">📖</div>
+  <div class="floating-icon spark-1">🌟</div>
 
   <!-- Header Section -->
   <header>
@@ -318,7 +385,6 @@
     <div class="modal-content">
       <span class="modal-close" onclick="closeVideoModal()">&times;</span>
       <div class="video-container">
-        <!-- Paste your YouTube embed URL below -->
         <iframe id="videoIframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
     </div>
@@ -333,7 +399,6 @@
 
     const modal = document.getElementById('videoModal');
     const iframe = document.getElementById('videoIframe');
-    // Replace this link with your own video embed link when ready
     const videoUrl = "https://drive.google.com/file/d/10Ral6GUJEfOjCfJt8tfbZHsh51iN_EEi/preview";
 
     function openVideoModal() {
