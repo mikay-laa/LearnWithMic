@@ -4,22 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LearnWithMic - Study SMART, Not HARD</title>
-
+  
   <style>
-    /* Modern, Clean Typography */
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    /* Google Fonts matching reference typography */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,400&family=Alex+Brush&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
     /* Reset & Base Styles */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
-      background-color: #fdf2f8;
+      background-color: #fdf3f7;
       color: #6b2144;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -53,40 +53,38 @@
       background-image: 
         radial-gradient(2px 2px at 20px 30px, #f472b6, rgba(0,0,0,0)),
         radial-gradient(2px 2px at 40px 70px, #fbcfe8, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 90px 40px, #ec4899, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 90px 40px, #ec4899, rgba(0,0,0,0)),
         radial-gradient(2px 2px at 160px 120px, #f472b6, rgba(0,0,0,0)),
         radial-gradient(1.5px 1.5px at 230px 190px, #fbcfe8, rgba(0,0,0,0)),
         radial-gradient(2px 2px at 310px 80px, #ec4899, rgba(0,0,0,0));
-      background-repeat: repeat;
-      background-size: 350px 350px;
+      background-size: 300px 300px;
       opacity: 0.6;
       animation: glitterShimmer 4s linear infinite alternate;
     }
 
     @keyframes glitterShimmer {
-      0% { opacity: 0.4; transform: translateY(0); }
-      100% { opacity: 0.8; transform: translateY(-10px); }
+      0% { opacity: 0.35; transform: translateY(0); }
+      100% { opacity: 0.75; transform: translateY(-8px); }
     }
 
-    /* Floating Pink Butterflies and Flowers */
+    /* Floating Butterflies and Flowers */
     .floating-element {
       position: fixed;
       user-select: none;
       pointer-events: none;
-      z-index: 1;
-      opacity: 0.85;
-      filter: drop-shadow(0 4px 8px rgba(244, 114, 182, 0.3));
+      z-index: 10;
+      opacity: 0.9;
+      filter: drop-shadow(0 4px 8px rgba(244, 114, 182, 0.35));
     }
 
-    .butterfly-1 { top: 15%; left: 6%; font-size: 2.4rem; animation: floatButterfly 7s ease-in-out infinite; }
-    .butterfly-2 { bottom: 20%; right: 7%; font-size: 2.2rem; animation: floatButterfly 8s ease-in-out infinite 1.5s; }
-    .flower-1 { top: 22%; right: 8%; font-size: 2.2rem; animation: floatFlower 6s ease-in-out infinite 0.5s; }
-    .flower-2 { bottom: 18%; left: 8%; font-size: 2rem; animation: floatFlower 7.5s ease-in-out infinite 1s; }
-    .sparkle-pink { top: 10%; left: 45%; font-size: 1.8rem; animation: floatFlower 5s ease-in-out infinite 2s; }
+    .butterfly-1 { top: 18%; left: 5%; font-size: 2.5rem; animation: floatButterfly 7s ease-in-out infinite; }
+    .butterfly-2 { bottom: 18%; right: 5%; font-size: 2.3rem; animation: floatButterfly 8s ease-in-out infinite 1.5s; }
+    .flower-1 { top: 22%; right: 6%; font-size: 2.2rem; animation: floatFlower 6s ease-in-out infinite 0.5s; }
+    .flower-2 { bottom: 22%; left: 6%; font-size: 2.1rem; animation: floatFlower 7.5s ease-in-out infinite 1s; }
 
     @keyframes floatButterfly {
       0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-      50% { transform: translateY(-18px) rotate(12deg) scale(1.05); }
+      50% { transform: translateY(-16px) rotate(12deg) scale(1.05); }
     }
 
     @keyframes floatFlower {
@@ -94,16 +92,16 @@
       50% { transform: translateY(-12px) rotate(-8deg); }
     }
 
-    /* Header & Navigation Bar */
+    /* Header Navigation */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 18px 40px;
-      background: rgba(253, 242, 248, 0.92);
+      background: rgba(253, 243, 247, 0.85);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(244, 114, 182, 0.25);
-      z-index: 10;
+      border-bottom: 1px solid rgba(244, 114, 182, 0.2);
+      z-index: 20;
     }
 
     .brand {
@@ -128,7 +126,7 @@
     }
 
     .brand-name {
-      color: #831843;
+      color: #61183c;
       font-size: 1.25rem;
       font-weight: 800;
       letter-spacing: -0.3px;
@@ -141,7 +139,7 @@
     }
 
     nav a {
-      color: #831843;
+      color: #61183c;
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 600;
@@ -151,7 +149,7 @@
     }
 
     nav a:hover, nav a.active {
-      color: #db2777;
+      color: #ec4899;
     }
 
     nav a.active::after {
@@ -171,137 +169,154 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 50px 20px;
+      padding: 40px 20px;
       z-index: 2;
     }
 
-    /* Natural Handcrafted Journal Card */
+    /* Main Natural Card exact layout from reference */
     .journal-card {
-      background: radial-gradient(circle at 20% 30%, rgba(255, 245, 249, 0.98) 0%, rgba(255, 230, 240, 0.95) 100%);
-      border: 2px solid #f472b6;
+      background: #fffafa;
+      border: 1.5px solid rgba(244, 114, 182, 0.35);
       border-radius: 28px;
-      padding: 50px 40px;
-      max-width: 780px;
+      padding: 55px 45px;
+      max-width: 860px;
       width: 100%;
       text-align: center;
       box-shadow: 
-        0 15px 35px rgba(244, 114, 182, 0.18),
-        inset 0 0 30px rgba(244, 114, 182, 0.12);
+        0 20px 40px rgba(244, 114, 182, 0.12),
+        0 2px 6px rgba(0, 0, 0, 0.02);
       position: relative;
-      transform: rotate(-0.2deg);
+      overflow: hidden;
     }
 
-    /* Decorative Washi Tape Accent */
+    /* Corner Soft Pink Glows inside the Card */
     .journal-card::before {
       content: '';
       position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 26px;
-      background: rgba(251, 207, 232, 0.85);
-      border: 1px dashed rgba(244, 114, 182, 0.5);
-      border-radius: 2px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+      top: -60px;
+      left: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(251, 113, 133, 0.18);
+      filter: blur(40px);
+      pointer-events: none;
     }
 
-    .badge {
+    .journal-card::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(244, 114, 182, 0.22);
+      filter: blur(45px);
+      pointer-events: none;
+    }
+
+    /* Top Pill Badge */
+    .badge-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #fdf2f8;
-      border: 1px solid #f472b6;
-      padding: 6px 18px;
-      border-radius: 20px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #9d174d;
-      margin-bottom: 22px;
+      background: #ffffff;
+      border: 1px solid rgba(244, 114, 182, 0.4);
+      padding: 6px 20px;
+      border-radius: 25px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #e11d48;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(244, 114, 182, 0.1);
     }
 
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      background-color: #ec4899;
-      border-radius: 50%;
-    }
-
-    .title {
-      font-size: 3.8rem;
+    /* Main Title - Serif Bold */
+    .main-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.2rem;
       font-weight: 800;
-      color: #831843;
-      letter-spacing: -1.5px;
-      margin-bottom: 8px;
-      animation: floatTitle 3s ease-in-out infinite;
+      color: #581c38;
+      letter-spacing: -1px;
+      margin-bottom: 2px;
+      line-height: 1.1;
     }
 
-    @keyframes floatTitle {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+    /* Cursive Tagline */
+    .cursive-tagline {
+      font-family: 'Alex Brush', cursive;
+      font-size: 2.4rem;
+      color: #f43f5e;
+      margin-bottom: 30px;
+      font-weight: 400;
     }
 
-    .subtitle {
-      font-size: 1.4rem;
-      color: #db2777;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    .description {
-      font-size: 1.05rem;
-      color: #6b2144;
-      max-width: 580px;
-      line-height: 1.75;
+    /* Quote Pill Box */
+    .quote-box {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(244, 114, 182, 0.35);
+      border-radius: 18px;
+      padding: 18px 28px;
+      max-width: 680px;
       margin: 0 auto 35px auto;
+      box-shadow: 0 4px 15px rgba(244, 114, 182, 0.06);
     }
 
-    .highlight {
-      color: #be185d;
-      font-weight: 700;
-      background: #fbcfe8;
-      padding: 2px 8px;
-      border-radius: 6px;
+    .quote-text {
+      font-size: 0.98rem;
+      font-style: italic;
+      color: #701a38;
+      line-height: 1.6;
+      font-weight: 500;
     }
 
-    /* Action Button */
+    /* Solid Pink Pill Button */
     .btn-watch {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      background: #f472b6;
+      background: #ff65a3;
       color: #ffffff;
-      padding: 14px 32px;
-      border-radius: 28px;
+      padding: 14px 34px;
+      border-radius: 30px;
       font-weight: 700;
-      font-size: 0.98rem;
+      font-size: 0.88rem;
+      letter-spacing: 0.8px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 6px 20px rgba(244, 114, 182, 0.4);
-      transition: all 0.2s ease;
+      box-shadow: 0 8px 22px rgba(255, 101, 163, 0.4);
+      transition: all 0.25 ease;
       text-decoration: none;
     }
 
     .btn-watch:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.5);
-      background: #ec4899;
+      box-shadow: 0 10px 28px rgba(255, 101, 163, 0.55);
+      background: #f43f5e;
     }
 
-    .play-icon {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
+    .play-triangle {
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 8px solid #ffffff;
+      display: inline-block;
+      margin-left: 2px;
     }
 
-    /* Modal Overlay & Pop-up Video */
+    /* Video Pop-up Modal */
     .modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(131, 24, 67, 0.5);
+      background: rgba(88, 28, 56, 0.5);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
@@ -325,7 +340,7 @@
       top: 15px;
       right: 20px;
       font-size: 1.8rem;
-      color: #831843;
+      color: #581c38;
       cursor: pointer;
       z-index: 1001;
       font-weight: bold;
@@ -352,12 +367,11 @@
   <div class="bg-grid"></div>
   <div class="pink-glitter-overlay"></div>
 
-  <!-- Animated Pink Butterflies & Flowers -->
+  <!-- Animated Floating Elements -->
   <div class="floating-element butterfly-1">🦋</div>
   <div class="floating-element butterfly-2">🦋</div>
   <div class="floating-element flower-1">🌸</div>
   <div class="floating-element flower-2">🌺</div>
-  <div class="floating-element sparkle-pink">✨</div>
 
   <!-- Header Section -->
   <header>
@@ -376,31 +390,37 @@
     </nav>
   </header>
 
-  <!-- Coquette Study Journal Hero -->
+  <!-- Front Page Layout matching reference image -->
   <main class="hero-container">
     <div class="journal-card">
-      <div class="badge">
-        <span class="badge-dot"></span>
-        Digital Learning & Smart Study Tips
+      
+      <!-- Top Pill Badge -->
+      <div class="badge-pill">
+        🍒 WELCOME TO MY WORLD
       </div>
 
-      <h1 class="title">LearnWithMic</h1>
-      <h2 class="subtitle">Study SMART, not HARD 🌸</h2>
+      <!-- Main Title -->
+      <h1 class="main-title">LearnWithMic</h1>
 
-      <p class="description">
-        Welcome! Here I document my learning journey, share useful <span class="highlight">educational tools</span>, and help students discover better, <span class="highlight">stress-free ways to learn</span>.
-      </p>
+      <!-- Cursive Subtitle Tagline -->
+      <p class="cursive-tagline">"Study SMART. Not HARD. Keep learning."</p>
 
+      <!-- Pill Quote Box -->
+      <div class="quote-box">
+        <p class="quote-text">
+          "Heyoo! Welcome to LearnWithMic, a collection of my journeys, learnings, and little moments that I want to cherish and look back on someday." 🌸 ✨
+        </p>
+      </div>
+
+      <!-- Solid Pink Pill CTA Button -->
       <button class="btn-watch" onclick="openVideoModal()">
-        WATCH THE VIDEO 🎀
-        <svg class="play-icon" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
+        WATCH THE VIDEO 🎀 <span class="play-triangle"></span>
       </button>
+
     </div>
   </main>
 
-  <!-- Video Pop-up Modal -->
+  <!-- Video Modal -->
   <div class="modal-overlay" id="videoModal">
     <div class="modal-content">
       <span class="modal-close" onclick="closeVideoModal()">&times;</span>
